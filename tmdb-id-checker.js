@@ -48,7 +48,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 resultsDiv.innerHTML = `<p class="error">Error: ${movieData.error}</p>`;
             } else {
                 resultsDiv.innerHTML = `
-                    <h2>TMDb ID: ${movieData.id} <button onclick="navigator.clipboard.writeText('${movieData.id}')">Copy ID</button></h2>
+                    <style>
+                    .btn {
+                      font-family: Arial, Helvetica, sans-serif;
+                      text-transform: uppercase;
+                    }
+                    .btn-moving-gradient {
+                      height: 55px;
+                      width: 200px;
+                      font-size: 16px;
+                      font-weight: 600;
+                      color: rgb(255, 255, 255);
+                      cursor: pointer;
+                      border: none;
+                      background-size: 300% 100%;
+                      border-radius: 50px;
+                    }
+                    .btn-moving-gradient:hover {
+                      transition: 0.5s ease-in-out;
+                      background-position: 100% 0px;
+                    }
+                    .btn-moving-gradient--blue {
+                      background-image: linear-gradient(90deg, rgb(61, 135, 255), rgb(190, 61, 255), rgb(126, 61, 255), rgb(58, 134, 255));
+                      box-shadow: rgb(190, 61, 255) 0px 4px 15px 0px;
+                    }
+                    </style>
+                    
+                    <h2>Movie ID: ${movieData.id} <button class="btn btn-moving-gradient btn-moving-gradient--blue" onclick="navigator.clipboard.writeText('${movieData.id}')">Copy ID</button></h2>
                     ${movieData.poster_path ? `<img src="${movieData.poster_path}" alt="${movieData.title} poster" style="float: left; margin-right: 20px;">` : ''}
                     <p><strong>Title:</strong> ${movieData.title} (${movieData.release_date.substring(0, 4)})</p>
                     <p><strong>Overview:</strong> ${movieData.overview || 'N/A'}</p>
