@@ -1,5 +1,5 @@
 // TMDb Movie ID Checker
-const API_KEY = 'YOUR_TMDB_API_KEY'; // Replace with your actual API key
+const API_KEY = '257654f35e3dff105574f97fb4b97035'; // Replace with your actual API key
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 async function getMovieId(movieTitle, year = null) {
