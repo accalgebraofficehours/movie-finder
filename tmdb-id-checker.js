@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 resultsDiv.innerHTML = `<p class="error">Error: ${movieData.error}</p>`;
             } else {
                 resultsDiv.innerHTML = `
-                    <h2>${movieData.title} (${movieData.release_date.substring(0, 4)})</h2>
+                    <h2>TMDb ID: ${movieData.id} <button onclick="navigator.clipboard.writeText('${movieData.id}')">Copy ID</button></h2>
                     ${movieData.poster_path ? `<img src="${movieData.poster_path}" alt="${movieData.title} poster" style="float: left; margin-right: 20px;">` : ''}
-                    <p><strong>TMDb ID:</strong> ${movieData.id}</p>
+                    <p><strong>Title:</strong> ${movieData.title} (${movieData.release_date.substring(0, 4)})</p>
                     <p><strong>Overview:</strong> ${movieData.overview || 'N/A'}</p>
                 `;
             }
