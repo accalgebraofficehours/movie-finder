@@ -4,6 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie ID Finder</title>
+    <script>
+    // Block all window.open attempts on your site
+    window.open = function () {
+        console.warn("Popup attempt blocked.");
+        return null;
+    };
+
+    // Also prevent iframe popups (if any)
+    document.addEventListener('DOMContentLoaded', () => {
+        const iframes = document.querySelectorAll('iframe');
+        iframes.forEach(iframe => {
+            try {
+                iframe.contentWindow.open = function () {
+                    console.warn("Popup attempt inside iframe blocked.");
+                    return null;
+                };
+            } catch (e) {
+                // Cross-origin iframes may not allow access
+                console.warn("Could not block iframe popup (cross-origin).");
+            }
+        });
+    });
+    </script>
     <style>
         body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
         .error { color: red; }
