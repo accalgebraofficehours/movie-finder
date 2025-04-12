@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     </style>
                     
-                    <h2>Movie ID: ${movieData.id} <button class="btn btn-moving-gradient btn-moving-gradient--blue" onclick="navigator.clipboard.writeText('${movieData.id}')">Copy ID</button></h2>
+                    <h2> <button class="btn btn-moving-gradient btn-moving-gradient--blue" onclick="navigator.clipboard.writeText('${movieData.id}')">Copy ID</button> Movie ID: ${movieData.id}</h2>
                     ${movieData.poster_path ? `<img src="${movieData.poster_path}" alt="${movieData.title} poster" style="float: left; margin-right: 20px;">` : ''}
                     <p><strong>Title:</strong> ${movieData.title} (${movieData.release_date.substring(0, 4)})</p>
                     <p><strong>Overview:</strong> ${movieData.overview || 'N/A'}</p>
